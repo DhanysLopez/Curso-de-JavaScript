@@ -29,3 +29,9 @@ console.log(DIEZ);
 const PI = 3.1416;
 // PI = 3.15 //Imprime Uncaught TypeError: Assignment to constant variable
 console.log(PI) 
+
+const Rakan = {};
+Rakan.item = "Compró Botas de jonias";
+console.log(Rakan);
+Rakan.item = "Cambio a Botas de Mercurio"
+console.log(Rakan);
