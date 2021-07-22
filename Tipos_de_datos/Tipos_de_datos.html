@@ -38,8 +38,84 @@
             <br><br>
             NOTA: Js permite cambiar propiedades de "objetos" y "arreglos" con "conts".
         </div>
+        <br><br>
+        <div class="">
+            <h1>Tipos de datos en JS</h1>
+            <h2>Primitivos:</h2>
+            <p>Se accede directamente al valor</p>
+            <ul>
+                <li>string</li>
+                <li>number</li>
+                <li>boolean</li>
+                <li>null</li>
+                <li>undefined</li>
+                <li>NaN</li>
+            </ul>
+            <h2>Compuestos:</h2>
+            <p>Se accede a la referencia del valor</p>
+            <ul>
+                <li>object = {}</li>
+                <li>array = []</li>
+                <li>function (){}</li>
+                <li>Class {}</li>
+                <li>etc.</li>
+            </ul>
+        </div>
+        <br><br>
+        <div class="">
+            <h1>~Booleans~</h1>
+            En ciencias de informatica, un "boolean es un dato lógico que solo puede tener los valores "true" o "false".
+            <h2>Truthy</h2>
+            En JS, un valor verdadero es un valor que se considera "true/verdadero" cuando es evaluado en un contexto
+            "Booleano". Todos los valores son verdaderos a menos que se definan como falso (es decir, excepto false, 0,
+            "", null, undefine, y NaN).
+            <br>
+            <h3>Ejemplos de valores verdaeros (Truthy):</h3>
+            <ul>
+                <li>if (true)</li>
+                <li>if ({}) //Objto vacio</li>
+                <li>if ([]) //Un array</li>
+                <li>if (42)</li>
+                <li>if ("foo")</li>
+                <li>if (new Date()) //Fecha</li>
+                <li>if (-42)</li>
+                <li>if (3.14)</li>
+                <li>if (-3.14)</li>
+                <li>if (Infinity)</li>
+                <li>if (-Infinity)</li>
+            </ul>
+            <br>
+            <h2>Falsy</h2>
+            Es un valor falso que se considera "false/falso" cuando es evaludo en un contexto "Boleano".
+            <h3>Ejamples de valores falsos (Falsy/Falsey)</h3>
+            <ul>
+                <li>if (false) //Falso</li>
+                <li>if (null)</li>
+                <li>if (undefined)</li>
+                <li>if (0)</li>
+                <li>if (-0)</li>
+                <li>if (0n)</li>
+                <li>if (NaN)</li>
+                <li>if (""/'') //Cadena de txt vasia</li>
+            </ul>
+            Los operadores lógicos AND, y &&.
+            <ul>
+                <li>false && "dog"</li>
+                <li>0 && "dog"</li>
+            </ul>
+        </div>
+        <br><br>
+        <div class="">
+            <h1>~undefined, null, NaN~</h1>
+            <ul>
+                <li>undefine: indica que no se ha inicializado una variable y que el valor esta ausente</li>
+                <li>null: es un valor especial que indica la ausencia de un valor</li>
+                <li>NaN: Not a Number</li>
+            </ul>
+        </div>
     </section>
 </body>
 <script src="/Tipos_de_datos/Variables_de_bloque_y_constantes.js"></script>
 <script src="/Tipos_de_datos/Tipos_de_datos.js"></script>
+
 </html>
