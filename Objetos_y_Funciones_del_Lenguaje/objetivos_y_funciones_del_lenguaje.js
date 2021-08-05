@@ -149,9 +149,72 @@ saludar();
 /* ~alert, confirm y prompt~ */
 let alertConfimYPrompt = "~alert, confirm y prompt~"
 
-let alerta = alert("Hola esto es una alerta"),
-    confirmacion = confirm("Hola esto es una confirmación"),
-    aviso = prompt("Hola esto es un aviso");
-console.log(alerta);
-console.log(confirmacion);
-console.log(aviso);
+//let alerta = alert("Hola esto es una alerta"),
+    //confirmacion = confirm("Hola esto es una confirmación"),
+    //aviso = prompt("Hola esto es un aviso");
+//console.log(alerta);
+//console.log(confirmacion);
+//console.log(aviso);
+
+/* ~Expresiones Regulares~ */
+let expresionesRegulares = "~Expresiones Regulares~";
+console.log(expresionesRegulares);
+
+let cadena = `Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit. Donec 20 congue risus eu vestibulum tempor. 
+Praesent elementum faucibus sagittis. Maecenas pellentesque 
+leo nunc, a consequat sem pulvinar in. Maecenas et tempor 
+lacus. Pellentesque tempus est at sapien molestie, aliquet 
+tempus nisi tincidunt. Integer placerat turpis erat, quis 
+ornare urna pulvinar vel. Curabitur vel purus quis felis 
+euismod laoreet at non massa lorem.`;
+
+// Ejemploc con constructor
+let expReg = new RegExp("Lorem", "i");
+
+console.log(expReg.test(cadena));
+console.log(expReg.exec(cadena));
+
+// Ejemplo con expresion regular
+let expReg2 = /Lorem/ig;
+
+console.log(expReg2.test(cadena));
+console.log(expReg2.exec(cadena));
+
+/* ~Funciones Anónimas Autoejecutables~ */
+let funcionesAnónimasAutoejecutables = "~Funciones Anónimas Autoejecutables~";
+console.log(funcionesAnónimasAutoejecutables);
+
+// Ejemplo - Clásica
+(function(){
+    console.log("Esto es una IIFE");
+})();
+
+(function(d,w,c){
+    console.log("Esto es otra IIFE");
+    console.log(d);
+    console.log(w);
+    c.log(c);
+})(document, window, console);
+
+// Ejemplo - FACEBOOK
+!function () {
+    console.log("Versión de FB")
+}();
+
+
+/* ~Módulos (import/export)~ */
+import despedida, {modulos, sumar, restar, calculo, Saludar} from "./modulos.js";
+console.log(modulos, calculo);
+
+console.log(sumar(5,5));
+console.log(restar(10,5));
+
+// Se menciona el objeto primero para acceder a su contenido
+console.log(calculo.multiplicar(3,10));
+console.log(calculo.dividir(30,3));
+
+// Class
+let saludo = new Saludar();
+saludo;
+despedida();
