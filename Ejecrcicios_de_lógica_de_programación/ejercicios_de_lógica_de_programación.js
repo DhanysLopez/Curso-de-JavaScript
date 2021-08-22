@@ -550,3 +550,309 @@ calcularAnios(new Date(2030, 3, 10));
 console.log(`-----------------------------
 
 `);
+
+
+
+
+/**
+    18) Programa una función que dada una cadena de texto cuente 
+    el número de vocales y consonantes, pe. miFuncion("Hola Mundo") 
+    devuelva Vocales: 4, Consonantes: 5.
+*/
+const contarLetras = (cadena = "") => {
+    if (!cadena) return console.warn("No ingresaste una cadena de texto");
+
+    if (typeof cadena !== "string") return console.error(`El valor "${cadena}",
+    NO es una cadena de texto.`);
+
+    let vocales = 0,
+        consonantes = 0;
+    cadena = cadena.toLowerCase();
+
+    for (let letra of cadena) {
+        if(/[aáeéiíoóuú]/.test(letra)) {
+            vocales++;
+        }
+
+        if(/[qwrtypdfghjklñzxcvbnm]/.test(letra)) {
+            consonantes++;
+        }
+    }
+
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+}
+contarLetras();
+contarLetras(3);
+contarLetras("Hola Mundo");
+console.log(`-----------------------------
+
+`);
+
+
+
+
+/**
+    19) Programa una función que valide que un texto sea un nombre válido, 
+    pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+*/
+const validarNombre = (nombre = "") => {
+    if (!nombre) return console.warn("No ingresaste un nombre");
+
+    if(typeof nombre !== "string") return console.error(`El valor "${nombre}" ingresado,
+    NO es una cadena de texto`);
+
+    let expReg = /^[A-Za-zñÑaáÁeéÉiíÍoóÓuóÚüÜ\s]+$/g.test(nombre);
+    return (expReg)
+    ?console.info(`${nombre}, es un nombre valido`)
+    :console.warn(`${nombre}, NO es un nombre valido`);
+}
+validarNombre();
+validarNombre(5);
+validarNombre("Dhanys Alfredo López Hernádez");
+console.log(`-----------------------------
+
+`);
+
+
+
+
+
+/**
+    20) Programa una función que valide que un texto sea un email válido, 
+    pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+*/
+const validarEmail = (email = "") => {
+    if (!email) return console.warn("No ingresaste un email");
+
+    if (typeof email !== "string") return console.error(`El valor ${email} ingresado,
+    NO es una cadena de texto`)
+
+    let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+
+    return (expReg)
+    ?console.info(`${email}, es un email valido`)
+    :console.warn(`${email}, NO es un email valido`);
+}
+
+validarEmail();
+validarEmail(52);
+validarEmail("dhanys2110@gmail.o");
+validarEmail("dhanys2110@gmail.com");
+console.log(`-----------------------------
+
+`);
+
+
+
+
+/**
+    21) Programa una función que dado un array numérico devuelve otro array 
+    con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) 
+    devolverá [1, 16, 25].
+*/
+const devolverCuadrado = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado,
+        NO es un número`);
+    }
+    const newArr = arr.map(el => el * el);
+    return console.info(`Arreglo original ${arr}, \nArreglo elevado al cuadrado: ${newArr}.`)
+}
+devolverCuadrado();
+devolverCuadrado(true);
+devolverCuadrado({});
+devolverCuadrado([]);
+devolverCuadrado([1,2,"3",4,"5"]);
+devolverCuadrado([1,4,5]);
+console.log(`-----------------------------
+
+`);
+
+
+
+
+
+/**
+    22) Programa una función que dado un array devuelva el número mas alto 
+    y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) 
+    devolverá [99, -60].
+*/
+const arryMinMax = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado,
+        NO es un número`);
+    }
+
+    return console.info(`Arreglo original: ${arr}\nValor mayor: ${Math.max(...arr)}\nValor menor: ${Math.min(...arr)}`)
+}
+arryMinMax();
+arryMinMax(true);
+arryMinMax([]);
+arryMinMax([1,2,"3"]);
+arryMinMax([1,4,5,99,-60]);
+console.log(`-----------------------------
+
+`);
+
+
+
+
+/**
+    23) Programa una función que dado un array de números devuelva un 
+    objeto con 2 arreglos en el primero almacena los números pares y 
+    en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) 
+    devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.    
+*/
+const separarParesImpares = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado,
+        NO es un número`);
+    }
+
+    return console.info({
+        pares: arr.filter(num => num %2 === 0),
+        impares: arr.filter(num => num %2 === 1)
+    })
+}
+separarParesImpares();
+separarParesImpares("hi");
+separarParesImpares([]);
+separarParesImpares([1,2,3,"4"]);
+separarParesImpares([1,2,3,4,5,6,7,8,9,0]);
+console.log(`-----------------------------
+
+`);
+
+
+
+
+
+/** 
+    24) Programa una función que dado un arreglo de números devuelva 
+    un objeto con dos arreglos, el primero tendrá los numeros ordenados 
+    en forma ascendente y el segundo de forma descendiente, 
+    pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], 
+    desc: [8,7,7,6,5] }.
+*/
+const ordenarArreglo = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado,
+        NO es un número`);
+    }
+
+    return console.info({
+        arr,
+        asc: arr.map(el => el).sort(),
+        desc: arr.map(el => el).sort().reverse()
+    });
+}
+ordenarArreglo();
+ordenarArreglo(true);
+ordenarArreglo(1,2,3,4,"5");
+ordenarArreglo([])
+ordenarArreglo([1,2,3,false]);
+ordenarArreglo([7,5,7,8,6]);
+console.log(`-----------------------------
+
+`);
+
+
+
+
+
+/**
+    25) Programa una función que dado un arreglo de elementos, 
+    elimine los duplicados, 
+    pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) 
+    devolverá ["x", 10, 2, "10", true].
+*/
+const quitarDuplicados = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    if (arr.length === 1) return console.error("El arreglo debe terner almenos 2 elementos");
+
+    return console.info({
+        original: arr,
+        sinDuplicados: arr.filter((value, index, self) => self.indexOf(value) === index)
+    })
+
+}
+quitarDuplicados();
+quitarDuplicados({});
+quitarDuplicados([]);
+quitarDuplicados([1]);
+quitarDuplicados(["x", 10, "x", 2, "10", 10, true, true]);
+console.log(`-----------------------------
+
+`);
+
+
+
+
+/**
+    26) Programa una función que dado un arreglo de números obtenga 
+    el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+*/
+const promedio = (arr = undefined) => {
+    if (arr === undefined) return console.warn("No ingresaste un arreglo de números");
+
+    if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+    if (arr.length === 0) return console.error("El arreglo esta vacío");
+
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error(`El valor ${num} ingresado,
+        NO es un número`);
+    }
+
+    return console.info(
+        arr.reduce((total, num, index, arr) => {
+            total += num;
+            if(index === arr.length -1) {
+                return `El promedio de ${arr.join(" + ")} es ${total/arr.length}`;
+            } else {
+                return total;
+            }
+        })
+    )
+}
+promedio();
+promedio({});
+promedio([]);
+promedio([1,2,"3"]);
+promedio([1,2,3,4,5,6,7,8,9,0]);
+console.log(`-----------------------------
+
+`);
